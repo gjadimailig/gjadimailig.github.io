@@ -42,7 +42,6 @@ function sendAjaxRequestToAI(msg) {
         data: JSON.stringify({ query: msg, lang: "en", sessionId: randomSessionId }),
         success: function(data) {
             setResponse(data);
-            // setResponse(JSON.stringify(data, undefined, 2));
         },
         error: function() {
             setResponse("Internal Server Error");
