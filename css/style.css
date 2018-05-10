@@ -104,7 +104,7 @@ input[type="text"], textarea {
 }
 
 .btn-default:hover {
-    color: #575861;
+    color: #e50000;
 }
 
 .p2::before {
