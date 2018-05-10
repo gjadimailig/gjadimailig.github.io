@@ -1,0 +1,112 @@
+html,
+body {
+  height: 100%;
+  background-color: #f8f9fa;
+  font-family: "Courier New";
+}
+
+.nav-masthead .nav-link {
+    padding: .25rem 0;
+    font-weight: 700;
+    color: #575861;
+    border-bottom: .05rem solid transparent;
+}
+  
+.nav-masthead .nav-link:hover {
+    border-bottom-color: #575861
+}
+  
+.nav-masthead .nav-link + .nav-link {
+    margin-left: 1rem;
+}
+  
+@media (min-width: 48em) {
+    .masthead-brand {
+        float: right;
+    }
+    .nav-masthead {
+      float: right;
+    }
+}
+
+.mastfoot {
+    color: #575861;
+}
+
+.cover-heading, .lead {
+    text-align: center;
+}
+
+.personal-message {
+    font-size: 12.5px;
+}
+
+.pre-scrollable {
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.form-element-bar {
+    position: relative;
+    height: 1px;
+    background: #999;
+    display: block;
+}
+
+.input-chat-message {       
+    background-color: #f8f9fa;
+    border: none;
+}
+
+ul li:before
+{
+    list-style-type: none;
+    content: '\3E';
+    margin: 0 1em;
+}
+
+.list-group-item {
+    background: none;
+    border-bottom-style: none;
+    border: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.form-control {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+input[type="text"], textarea {
+    outline: none;
+    box-shadow:none !important;
+    background-color: transparent;
+    ;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+.btn-default {
+    outline: none;
+    box-shadow:none !important;
+    background-color: transparent;
+    color: #e50000;
+}
+
+.btn-default:hover {
+    color: #575861;
+}
+
+.p2::before {
+    content: '\3E';   
+}
