@@ -4,7 +4,7 @@ var randomSessionId = Math.floor(Math.random()*90000) + 10000;
 
 $(document).ready( function () {
     $(document).on("keypress", "#input-msg", function(e) {
-        if (e.which == 13) {
+        if (e.which == 13 && !$("#sendButton").is(":disabled")) {
             sendMessage();
         }
     });
@@ -24,6 +24,17 @@ function clearInput(){
     $('#input-msg').focus();
 }
 
+function disableSendButton(){
+    $("#sendButton").html("[ ... ]");
+    $("#sendButton").attr("disabled", true);
+}
+
+function enableSendButton() {
+    $("#sendButton").removeAttr("disabled");
+    $('#sendButton').blur();
+    $("#sendButton").html("[ Send ]");
+}
+
 function scrollMessagesToBottomLeft() {
     var objDiv = document.getElementById("messages-container");
     objDiv.scrollTop = objDiv.scrollHeight;
@@ -41,12 +52,13 @@ function sendAjaxRequestToAI(msg) {
         },
         data: JSON.stringify({ query: msg, lang: "en", sessionId: randomSessionId }),
         success: function(data) {
-            setResponse(data);
+            setResponse(data.result.fulfillment.speech);
         },
         error: function() {
             setResponse("Internal Server Error");
         }
     });
+    disableSendButton();
 }
 
 function sendMessage() {
@@ -59,8 +71,9 @@ function sendMessage() {
     sendAjaxRequestToAI(msg);
 }
 
-function setResponse(data) {
-    appendMessageInChat(data.result.fulfillment.speech);   
+function setResponse(response) {
+    appendMessageInChat(response);
+    enableSendButton();
 }
 
 
