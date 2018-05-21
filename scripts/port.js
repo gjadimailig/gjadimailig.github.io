@@ -55,7 +55,7 @@ function sendAjaxRequestToAI(msg) {
             setResponse(data.result.fulfillment.speech);
         },
         error: function() {
-            setResponse("Internal Server Error");
+            setResponse("Unable to communicate with AI Server.");
         }
     });
     disableSendButton();
