@@ -1,4 +1,4 @@
-var accessToken = "b81fb40e657e46b39200f3a102fb5244";
+var accessToken = "15f8741706f1441abd2b83b44ff07bb9";
 var baseUrl = "https://api.api.ai/v1/";
 var randomSessionId = Math.floor(Math.random()*90000) + 10000;
 
@@ -8,8 +8,15 @@ $(document).ready( function () {
             sendMessage();
         }
     });
-    sendAjaxRequestToAI("Hi!");
+    sendAjaxRequestToAI("init");
     scrollMessagesToBottomLeft();
+
+    emailjs.send("default_service","template_XNz9mFDa",{from_name: "Client_x", message_html: "Contact me @09296711717"}, "user_w9n5fioFyctTbkqUptyZU" )
+        .then(function(response) {
+            console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+        }, function(err) {
+            console.log("FAILED. error=", err);
+        });
 });
 
 function appendMessageInChat(msg) {
@@ -75,5 +82,3 @@ function setResponse(response) {
     appendMessageInChat(response);
     enableSendButton();
 }
-
-
