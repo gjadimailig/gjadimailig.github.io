@@ -10,13 +10,6 @@ $(document).ready( function () {
     });
     sendAjaxRequestToAI("init");
     scrollMessagesToBottomLeft();
-
-    emailjs.send("default_service","template_XNz9mFDa",{from_name: "Client_x", message_html: "Contact me @09296711717"}, "user_w9n5fioFyctTbkqUptyZU" )
-        .then(function(response) {
-            console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
-        }, function(err) {
-            console.log("FAILED. error=", err);
-        });
 });
 
 function appendMessageInChat(msg) {
