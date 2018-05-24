@@ -1,5 +1,5 @@
 var randomSessionId = Math.floor(Math.random()*90000) + 10000;
-var corsProxy = "http://cors.io/?"; //cors issue on github
+var corsProxy = "https://cors.io/?"; //cors issue on github
 
 $(document).ready( function () {
     $(document).on("keypress", "#input-msg", function(e) {
