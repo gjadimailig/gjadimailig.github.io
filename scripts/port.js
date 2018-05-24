@@ -44,7 +44,7 @@ function sendAjaxRequestToAI(msg) {
     $.ajax({
         url: corsProxy + "https://gjadimailig-port-service.herokuapp.com/api/talk?sessionId=" + randomSessionId + "&msg=" + msg,
         success: function(data) {
-            setResponse(data.result.fulfillment.speech);
+            setResponse(JSON.parse(data).result.fulfillment.speech);
         },
         error: function() {
             setResponse("Unable to communicate with middleware");
