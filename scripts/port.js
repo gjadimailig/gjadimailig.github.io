@@ -1,4 +1,5 @@
 var randomSessionId = Math.floor(Math.random()*90000) + 10000;
+var corsProxy = "http://cors.io/?"; //cors issue on github
 
 $(document).ready( function () {
     $(document).on("keypress", "#input-msg", function(e) {
@@ -41,7 +42,7 @@ function scrollMessagesToBottomLeft() {
 
 function sendAjaxRequestToAI(msg) {
     $.ajax({
-        url: "https://gjadimailig-port-service.herokuapp.com/api/talk?sessionId=" + randomSessionId + "&msg=" + msg,
+        url: corsProxy + "https://gjadimailig-port-service.herokuapp.com/api/talk?sessionId=" + randomSessionId + "&msg=" + msg,
         success: function(data) {
             setResponse(data.result.fulfillment.speech);
         },
