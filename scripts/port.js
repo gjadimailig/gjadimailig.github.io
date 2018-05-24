@@ -1,5 +1,3 @@
-var accessToken = "15f8741706f1441abd2b83b44ff07bb9";
-var baseUrl = "https://api.api.ai/v1/";
 var randomSessionId = Math.floor(Math.random()*90000) + 10000;
 
 $(document).ready( function () {
@@ -8,7 +6,7 @@ $(document).ready( function () {
             sendMessage();
         }
     });
-    sendAjaxRequestToAI("init");
+    sendAjaxRequestToAI("wake_up");
     scrollMessagesToBottomLeft();
 });
 
@@ -43,19 +41,12 @@ function scrollMessagesToBottomLeft() {
 
 function sendAjaxRequestToAI(msg) {
     $.ajax({
-        type: "POST",
-        url: baseUrl + "query?v=20150910",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        headers: {
-            "Authorization": "Bearer " + accessToken
-        },
-        data: JSON.stringify({ query: msg, lang: "en", sessionId: randomSessionId }),
+        url: "https://gjadimailig-port-service.herokuapp.com/api/talk?sessionId=" + randomSessionId + "&msg=" + msg,
         success: function(data) {
             setResponse(data.result.fulfillment.speech);
         },
         error: function() {
-            setResponse("Unable to communicate with AI Server.");
+            setResponse("Unable to communicate with middleware");
         }
     });
     disableSendButton();
