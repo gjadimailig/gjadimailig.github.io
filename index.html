@@ -15,6 +15,14 @@
   </head>
   <body>
 	
+	<div id="pre-loader">
+	<div id="loader">
+		<div id="top"></div>
+		<div id="bottom"></div>
+		<div id="line"></div>
+	</div>
+	</div>
+
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 		<header class="masthead mb-auto">
 			<div class="inner">
@@ -42,7 +50,7 @@
 								<div class="p-2"></br></div>	
 							</div>
 							<div class="input-group">
-								<input type="text" id="input-msg" class="form-control" placeholder="Ask something." autofocus>
+								<input type="text" id="input-msg" class="form-control" placeholder="Enter message" autofocus>
 								<span class="input-group-btn">
 									<button id="sendButton" class="btn btn-default" type="button" onclick="sendMessage();">[ Send ]</button>
 								</span>

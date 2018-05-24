@@ -1,5 +1,6 @@
 var randomSessionId = Math.floor(Math.random()*90000) + 10000;
 var corsProxy = "https://cors.io/?"; //cors issue on github
+var isServerAwake = 1;
 
 $(document).ready( function () {
     $(document).on("keypress", "#input-msg", function(e) {
@@ -7,8 +8,10 @@ $(document).ready( function () {
             sendMessage();
         }
     });
-    sendAjaxRequestToAI("wake_up");
-    scrollMessagesToBottomLeft();
+    sendAjaxRequestToAI("wake_up", function(){
+        var preLoader = document.getElementById("pre-loader");
+        document.body.removeChild(preLoader);
+    });
 });
 
 function appendMessageInChat(msg) {
@@ -40,14 +43,16 @@ function scrollMessagesToBottomLeft() {
     objDiv.scrollLeft = 0;
 }
 
-function sendAjaxRequestToAI(msg) {
+function sendAjaxRequestToAI(msg, wakeUp) {
     $.ajax({
         url: corsProxy + "https://gjadimailig-port-service.herokuapp.com/api/talk?sessionId=" + randomSessionId + "&msg=" + msg,
         success: function(data) {
             setResponse(JSON.parse(data).result.fulfillment.speech);
+            wakeUp();
         },
         error: function() {
             setResponse("Unable to communicate with middleware");
+            wakeUp();
         }
     });
     disableSendButton();
@@ -60,7 +65,7 @@ function sendMessage() {
 
     appendMessageInChat(msg);
     clearInput();
-    sendAjaxRequestToAI(msg);
+    sendAjaxRequestToAI(msg, function(){});
 }
 
 function setResponse(response) {
