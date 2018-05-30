@@ -128,9 +128,9 @@ function displayAppropriateInput(intentId) {
         $(".input-group").append('<div class="row">');
         $(".input-group").append('<div class="col-md-4"></div>');
         $(".input-group").append('<div class="col-md-4 text-center">' 
-            + '<button class="btn btn-default" type="button" onclick="sendMessage(\'Contact me\');">[ Contact me ]</button>' 
+            + '<button class="btn btn-default" type="button" onclick="sendMessage(\'Let him contact me\');">[ Let him contact me ]</button>' 
             + '<button class="btn btn-default" type="button" onclick="sendMessage(\'Leave a message\');">[ Leave a message ]</button>' 
-            + '<button class="btn btn-default" type="button" onclick="sendMessage(\'No thanks\');">[ No thanks ]</button>' 
+            + '<button class="btn btn-default" type="button" onclick="sendMessage(\'No thanks   \');">[ No thanks ]</button>' 
             + '</div>');
         $(".input-group").append('<div class="col-md-4"></div>');
         $(".input-group").append('</div>');
