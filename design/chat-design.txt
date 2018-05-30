@@ -1,7 +1,0 @@
-CHATBOT - AI
-Target : Clients / Recruiters / Developers
-Functions : 
-	1) Give them my resume.
-	2) Show them my works.
-	3) Let me know if someone wants to touch base.
-	4) Leave me a message.
